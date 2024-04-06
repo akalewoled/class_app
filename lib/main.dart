@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'secondPage.dart';
 void main() => runApp(
   MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -27,6 +27,7 @@ class HomePage extends StatelessWidget{
         ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        
         children: <Widget >[
           SizedBox(height: 40,),
            Container(
@@ -99,22 +100,34 @@ class HomePage extends StatelessWidget{
                             SizedBox(height: 40,),
                             Text("Forgot password",style: TextStyle(color: Colors.grey),),
                             SizedBox(height: 40,),
-                            Container(
+                            
+                       Container(
                               height: 50,
                               margin: EdgeInsets.symmetric(horizontal: 50),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
-                                color: Colors.orange[900]
+                                // Remove background color or set it to transparent
+                                color: Color.fromRGBO(225, 95, 27, 3), // Or any transparent color
                               ),
-                              child:Center(
-                                child: Text("Login",style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold ,fontSize: 15)),
-                              )
-                              
-
-                            )
-
-                            
-                            
+                              child: Center(
+                                child: TextButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => SecondPage()),
+                                    );
+                                  },
+                                  child: Text(
+                                    'Log in', 
+                                    style: TextStyle( // Customize text style (optional)
+                                      color: Colors.white, // Change text color as needed
+                                      fontSize: 16.0, // Adjust font size as desired
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            // end of columun )
                             
                             
                           ],
@@ -129,10 +142,13 @@ class HomePage extends StatelessWidget{
                   ],
                  ),
                  )
+              
+              ,
               )
        )
         ],
       ),
+    
     
     )
     );
